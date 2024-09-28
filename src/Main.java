@@ -1,16 +1,16 @@
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+// i import Scanner
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        //there i am adding scanner
+        Scanner scanner = new Scanner(System.in);
+        // there i will get the single instance of Logger
+        Logger logger = Logger.getInstance();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        // there i will log messages using the Logger instance
+        // this code is for writing some message to terminal
+        String Message = scanner.nextLine();
+        // with this i will go tho the Logger and will print message to the terminal
+        logger.LogToConsole(Message);
     }
 }
