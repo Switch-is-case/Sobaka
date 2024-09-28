@@ -1,5 +1,7 @@
+package Logger;
+
 public class Logger {
-        // this code is private static variable to hold the single instance of the Logger
+        // this code is private static variable to hold the single instance of the Logger.Logger
         private static Logger instance;
 
         // this code is private constructor to prevent instantiation from outside
