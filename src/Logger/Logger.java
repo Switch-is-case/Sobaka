@@ -15,7 +15,7 @@ public class Logger {
             return instance; // to return a created object
         }
 
-        // Step 4: Method to log messages
+        // this Method to log messages
         public void LogToConsole(String message) {
             System.out.println("Log message: " + message);
         }
