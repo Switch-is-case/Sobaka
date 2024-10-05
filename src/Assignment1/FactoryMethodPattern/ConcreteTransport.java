@@ -1,4 +1,4 @@
-package FactoryMethodPattern;
+package Assignment1.FactoryMethodPattern;
 
 public class ConcreteTransport {
     public static class Car implements Transport{

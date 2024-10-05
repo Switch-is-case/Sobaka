@@ -1,4 +1,4 @@
-package ProtatypePattern;
+package Assignment1.ProtatypePattern;
 
 public class Product implements Cloneable{
     private String name;

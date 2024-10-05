@@ -1,4 +1,4 @@
-package BuilderPattern;
+package Assignment1.BuilderPattern;
 public class Main {
     public static void main(String[] args) {
         House house = new House.HouseBuilder()

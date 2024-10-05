@@ -1,4 +1,4 @@
-package ProtatypePattern;
+package Assignment1.ProtatypePattern;
 
 public class Main {
     public static void main(String[] args) {

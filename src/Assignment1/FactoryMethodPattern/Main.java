@@ -1,4 +1,4 @@
-package FactoryMethodPattern;
+package Assignment1.FactoryMethodPattern;
 import java.util.Scanner;
 
 public class Main {
@@ -6,11 +6,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         TransportFactory factory = null;
 
-        // User selects the type of delivery
         System.out.println("Select delivery method (land, water, air): ");
         String deliveryType = scanner.nextLine();
 
-        // Instantiate the appropriate factory based on user input
         switch (deliveryType.toLowerCase()) {
             case "land":
                 factory = new ConcreteFactories.LandTransportFactory();
@@ -26,7 +24,6 @@ public class Main {
                 break;
         }
 
-        // Perform delivery using the selected factory
         if (factory != null) {
             factory.manageDelivery();
         }

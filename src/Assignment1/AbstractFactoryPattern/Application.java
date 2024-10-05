@@ -1,4 +1,4 @@
-package AbstractFactoryPattern;
+package Assignment1.AbstractFactoryPattern;
 
 public class Application {
     private Button button;

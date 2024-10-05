@@ -1,4 +1,4 @@
-package FactoryMethodPattern;
+package Assignment1.FactoryMethodPattern;
 
 public abstract class TransportFactory {
     public abstract Transport createTransport();

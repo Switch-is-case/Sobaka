@@ -1,4 +1,4 @@
-package BuilderPattern;
+package Assignment1.BuilderPattern;
 
 public class House {
     private int numRooms;

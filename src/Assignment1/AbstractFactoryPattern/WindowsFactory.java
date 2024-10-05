@@ -1,6 +1,8 @@
-package AbstractFactoryPattern;
+package Assignment1.AbstractFactoryPattern;
 
-public class WindowsFactory implements GUIFactory{
+import Assignment1.AbstractFactoryPattern.*;
+
+public class WindowsFactory implements GUIFactory {
     @Override
     public Button createButton() {
         return new WindowsButton();
