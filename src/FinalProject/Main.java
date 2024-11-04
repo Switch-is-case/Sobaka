@@ -1,9 +1,9 @@
 package FinalProject;
 
-import FinalProject.controller.TaskController;
+import FinalProject.controller.ProjectController;  // Updated import
 import FinalProject.data.DatabaseConnection;
-import FinalProject.model.TaskModel;
-import FinalProject.view.TaskView;
+import FinalProject.model.ProjectModel;
+import FinalProject.view.ProjectView;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -11,19 +11,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        TaskModel model = new TaskModel();
-        TaskView view = new TaskView();
-        TaskController controller = new TaskController(model, view);
+        ProjectModel model = new ProjectModel();
+        ProjectView view = new ProjectView();
+        ProjectController controller = new ProjectController(model, view);  // Updated to ProjectController
         DatabaseConnection dbConnection = DatabaseConnection.getInstance(); // Singleton instance
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\nTask Management System");
-            System.out.println("1. Add a new task");
-            System.out.println("2. View a task by ID");
-            System.out.println("3. View all tasks");
-            System.out.println("4. Delete a task by ID");
-            System.out.println("5. Exit");
+            System.out.println("\nProject Management System");
+            System.out.println("1. Add a new project");  // Updated text
+            System.out.println("2. View a project by ID");  // Updated text
+            System.out.println("3. View all projects");  // Updated text
+            System.out.println("4. Delete a project by ID");  // Updated text
+            System.out.println("5. Update project status");
+            System.out.println("6. Exit");
             System.out.print("Choose an option: ");
 
             int choice = scanner.nextInt();
@@ -31,14 +32,14 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter task type (Regular, Urgent, Recurring): ");
+                    System.out.print("Enter project type (Regular, Urgent, Recurring): ");  // Updated text
                     String type = scanner.nextLine();
 
-                    System.out.print("Enter task ID: ");
+                    System.out.print("Enter project ID: ");  // Updated text
                     int id = scanner.nextInt();
                     scanner.nextLine();  // Consume newline character
 
-                    System.out.print("Enter task name: ");
+                    System.out.print("Enter project name: ");  // Updated text
                     String name = scanner.nextLine();
 
                     // Ask if the user wants to set a reminder
@@ -49,31 +50,42 @@ public class Main {
                         System.out.print("Enter reminder time (yyyy-MM-dd HH:mm): ");
                         String reminderInput = scanner.nextLine();
                         LocalDateTime reminderTime = LocalDateTime.parse(reminderInput, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-                        controller.addTaskWithReminder(type, id, name, reminderTime);
+                        controller.addProjectWithReminder(type, id, name, reminderTime);  // Updated method call
                     } else {
-                        // If no reminder, just add the task without it
-                        controller.addTask(type, id, name);
+                        // If no reminder, just add the project without it
+                        controller.addProject(type, id, name);  // Updated method call
                     }
                     break;
 
                 case 2:
-                    System.out.print("Enter task ID to view: ");
+                    System.out.print("Enter project ID to view: ");  // Updated text
                     int viewId = scanner.nextInt();
-                    controller.showTask(viewId);
+                    controller.showProject(viewId);  // Updated method call
                     break;
 
                 case 3:
-                    controller.showAllTasks();
+                    controller.showAllProjects();  // Updated method call
                     break;
 
                 case 4:
-                    System.out.print("Enter task ID to delete: ");
+                    System.out.print("Enter project ID to delete: ");  // Updated text
                     int deleteId = scanner.nextInt();
-                    controller.deleteTask(deleteId);
+                    controller.deleteProject(deleteId);  // Updated method call
                     break;
 
-                case 5:
-                    System.out.println("Exiting the Task Management System. Goodbye!");
+                case 5: // Add this case for updating project status
+                    System.out.print("Enter project ID to update status: ");
+                    int updateId = scanner.nextInt();
+                    scanner.nextLine(); // Consume newline character
+
+                    System.out.print("Enter new status (in progress, completed, etc.): ");
+                    String newStatus = scanner.nextLine();
+
+                    controller.updateProjectStatus(updateId, newStatus);
+                    break;
+
+                case 6:
+                    System.out.println("Exiting the Project Management System. Goodbye!");  // Updated text
                     dbConnection.disconnect();  // Close the singleton connection if needed
                     scanner.close();
                     System.exit(0);

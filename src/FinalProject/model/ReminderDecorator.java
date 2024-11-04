@@ -2,11 +2,11 @@ package FinalProject.model;
 
 import java.time.LocalDateTime;
 
-public class ReminderDecorator extends TaskDecorator {
+public class ReminderDecorator extends ProjectDecorator {
     private LocalDateTime reminderTime;
 
-    public ReminderDecorator(TaskModel.Task task, LocalDateTime reminderTime) {
-        super(task);
+    public ReminderDecorator(ProjectModel.Project project, LocalDateTime reminderTime) {
+        super(project);
         this.reminderTime = reminderTime;
     }
 

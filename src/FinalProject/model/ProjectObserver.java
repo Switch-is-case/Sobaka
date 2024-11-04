@@ -1,5 +1,5 @@
 package FinalProject.model;
 
-public interface TaskObserver {
+public interface ProjectObserver {
     void update(String message);
 }
